@@ -35,7 +35,7 @@ var Logger = (function () {
         for (var _i = 0; _i < (arguments.length - 1); _i++) {
             objects[_i] = arguments[_i + 1];
         }
-        this.log(message, Logger.TRACE, objects);
+        this.log(message, Rondin.TRACE, objects);
     };
 
     Logger.prototype.debug = function (message) {
@@ -43,7 +43,7 @@ var Logger = (function () {
         for (var _i = 0; _i < (arguments.length - 1); _i++) {
             objects[_i] = arguments[_i + 1];
         }
-        this.log(message, Logger.DEBUG, objects);
+        this.log(message, Rondin.DEBUG, objects);
     };
 
     Logger.prototype.info = function (message) {
@@ -51,7 +51,7 @@ var Logger = (function () {
         for (var _i = 0; _i < (arguments.length - 1); _i++) {
             objects[_i] = arguments[_i + 1];
         }
-        this.log(message, Logger.INFO, objects);
+        this.log(message, Rondin.INFO, objects);
     };
 
     Logger.prototype.warn = function (message) {
@@ -59,7 +59,7 @@ var Logger = (function () {
         for (var _i = 0; _i < (arguments.length - 1); _i++) {
             objects[_i] = arguments[_i + 1];
         }
-        this.log(message, Logger.WARN, objects);
+        this.log(message, Rondin.WARN, objects);
     };
 
     Logger.prototype.error = function (message) {
@@ -67,23 +67,8 @@ var Logger = (function () {
         for (var _i = 0; _i < (arguments.length - 1); _i++) {
             objects[_i] = arguments[_i + 1];
         }
-        this.log(message, Logger.ERROR, objects);
+        this.log(message, Rondin.ERROR, objects);
     };
-    Logger.normalLog = function (objects) {
-        return console.log.apply(console, objects);
-    };
-    Logger.warnLog = function (objects) {
-        return console.warn.apply(console, objects);
-    };
-    Logger.errorLog = function (objects) {
-        return console.error.apply(console, objects);
-    };
-
-    Logger.TRACE = new Level(LogLevel.TRACE, Logger.normalLog, "color:#AAA");
-    Logger.DEBUG = new Level(LogLevel.DEBUG, Logger.normalLog, "");
-    Logger.INFO = new Level(LogLevel.INFO, Logger.normalLog, "font-weight:bold");
-    Logger.WARN = new Level(LogLevel.WARN, Logger.warnLog, "");
-    Logger.ERROR = new Level(LogLevel.ERROR, Logger.errorLog, "");
     return Logger;
 })();
 
@@ -107,6 +92,22 @@ var Rondin = (function () {
             }
         }
     };
+    Rondin.normalLog = function (objects) {
+        return console.log.apply(console, objects);
+    };
+    Rondin.warnLog = function (objects) {
+        return console.warn.apply(console, objects);
+    };
+    Rondin.errorLog = function (objects) {
+        return console.error.apply(console, objects);
+    };
+
+    Rondin.TRACE = new Level(LogLevel.TRACE, Rondin.normalLog, "color:#AAA");
+    Rondin.DEBUG = new Level(LogLevel.DEBUG, Rondin.normalLog, "");
+    Rondin.INFO = new Level(LogLevel.INFO, Rondin.normalLog, "font-weight:bold");
+    Rondin.WARN = new Level(LogLevel.WARN, Rondin.warnLog, "");
+    Rondin.ERROR = new Level(LogLevel.ERROR, Rondin.errorLog, "");
+
     Rondin.loggers = {};
     Rondin.defaultLogLevel = LogLevel.INFO;
     return Rondin;

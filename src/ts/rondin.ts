@@ -17,17 +17,7 @@ class Level {
 }
 
 class Logger {
-
-	 static normalLog = (objects:any[]) =>	console.log.apply(console, objects);	
-	 static warnLog = (objects:any[]) =>	console.warn.apply(console, objects);	
-	 static errorLog = (objects:any[]) =>	console.error.apply(console, objects);
 	
-	 static TRACE = new Level(LogLevel.TRACE, Logger.normalLog,"color:#AAA");
-	 static DEBUG = new Level(LogLevel.DEBUG, Logger.normalLog,"");
-	 static INFO = new Level(LogLevel.INFO, Logger.normalLog,"font-weight:bold");
-	 static WARN = new Level(LogLevel.WARN, Logger.warnLog, "");
-	 static ERROR = new Level(LogLevel.ERROR, Logger.errorLog, "");
-	 
 	 constructor(public name: string, public level:LogLevel){
 		 
 	 }
@@ -41,27 +31,37 @@ class Logger {
 	 }
 	 
 	 trace(message:string, ...objects:any[]) {
-		 this.log(message, Logger.TRACE, objects);
+		 this.log(message, Rondin.TRACE, objects);
 	 }
 	 
 	 debug(message:string, ...objects:any[]) {
-		 this.log(message, Logger.DEBUG, objects);
+		 this.log(message, Rondin.DEBUG, objects);
 	 }
 	 
 	 info(message:string, ...objects:any[]) {
-		 this.log(message, Logger.INFO, objects);
+		 this.log(message, Rondin.INFO, objects);
 	 }
 	 
 	 warn(message:string, ...objects:any[]) {
-		 this.log(message, Logger.WARN, objects);
+		 this.log(message, Rondin.WARN, objects);
 	 }
 	 
 	 error(message:string, ...objects:any[]) {
-		 this.log(message, Logger.ERROR, objects);
+		 this.log(message, Rondin.ERROR, objects);
 	 }
 }
 
 class Rondin {
+     static normalLog = (objects:any[]) =>	console.log.apply(console, objects);	
+	 static warnLog = (objects:any[]) =>	console.warn.apply(console, objects);	
+	 static errorLog = (objects:any[]) =>	console.error.apply(console, objects);
+	
+	 static TRACE = new Level(LogLevel.TRACE, Rondin.normalLog,"color:#AAA");
+	 static DEBUG = new Level(LogLevel.DEBUG, Rondin.normalLog,"");
+	 static INFO = new Level(LogLevel.INFO, Rondin.normalLog,"font-weight:bold");
+	 static WARN = new Level(LogLevel.WARN, Rondin.warnLog, "");
+	 static ERROR = new Level(LogLevel.ERROR, Rondin.errorLog, "");
+	
 	 private static loggers: { [name:string]: Logger} = {};
 	 private static defaultLogLevel: LogLevel = LogLevel.INFO; 
 	
