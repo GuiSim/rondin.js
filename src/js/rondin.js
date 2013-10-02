@@ -102,7 +102,6 @@ var Rondin = (function () {
         if (typeof applyToExistingLoggers === "undefined") { applyToExistingLoggers = false; }
         Rondin.defaultLogLevel = newDefaultLevel;
         if (applyToExistingLoggers) {
-            console.log("!");
             for (var loggerName in Rondin.loggers) {
                 var logger = Rondin.loggers[loggerName];
                 logger.level = Rondin.defaultLogLevel;
@@ -113,7 +112,3 @@ var Rondin = (function () {
     Rondin.defaultLogLevel = LogLevel.INFO;
     return Rondin;
 })();
-
-var logger = Rondin.get("awesome.js");
-Rondin.setDefaultLogLevel(LogLevel.TRACE);
-logger.trace("Popo!");
