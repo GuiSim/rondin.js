@@ -54,6 +54,9 @@ Tested for Chrome
 ## Console API documentation
 https://developers.google.com/chrome-developer-tools/docs/console-api
 
+## What's up with the name?
+http://translate.google.com/#fr/en/rondin
+
 ## TODO
 
 * Add date to logs
