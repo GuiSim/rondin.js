@@ -61,3 +61,4 @@ https://developers.google.com/chrome-developer-tools/docs/console-api
 * Test on Firefox / Firebug
 * Test on NodeJS
 * Don't throw on other browsers
+** This can be avoided by simply calling ```if(!window.chrome) { Rondin.setDefaultLogLevel(LogLevel.OFF, true); }```
