@@ -34,7 +34,6 @@ class Logger {
 	 
 	 log(message:string, level:Level, objects:any[]) {
 		 if (this.level <= level.level) {
-			 console.log(this.level + " <= " + level.level)
 			 var params = ["%c" + LogLevel[level.level] + " - " + message, level.style];
 			 params = params.concat(objects);
 			 level.logFunction(params)
@@ -77,7 +76,6 @@ class Rondin {
 		
 		Rondin.defaultLogLevel = newDefaultLevel;
 		if (applyToExistingLoggers) {
-			console.log("!");
 			for (var loggerName in Rondin.loggers) {
 				var logger:Logger = Rondin.loggers[loggerName];
 				logger.level = Rondin.defaultLogLevel;
@@ -85,8 +83,3 @@ class Rondin {
 		}
 	}
 }
-
-
-var logger = Rondin.get("awesome.js");
-Rondin.setDefaultLogLevel(LogLevel.TRACE);
-logger.trace("Popo!");

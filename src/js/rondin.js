@@ -24,7 +24,6 @@ var Logger = (function () {
     }
     Logger.prototype.log = function (message, level, objects) {
         if (this.level <= level.level) {
-            console.log(this.level + " <= " + level.level);
             var params = ["%c" + LogLevel[level.level] + " - " + message, level.style];
             params = params.concat(objects);
             level.logFunction(params);
