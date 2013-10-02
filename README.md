@@ -58,3 +58,5 @@ https://developers.google.com/chrome-developer-tools/docs/console-api
 
 * Add date to logs
 * Add layout customization
+* Test on Firefox / Firebug
+* Don't throw on other browsers
