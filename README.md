@@ -59,7 +59,7 @@ http://translate.google.com/#fr/en/rondin
 ## TODO
 
 * Add layout customization
-** Add date to logs
-** Add logger name
+ * Add date to logs
+ * Add logger name
 * Test on Firefox / Firebug
 * Test on NodeJS
