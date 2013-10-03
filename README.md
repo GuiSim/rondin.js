@@ -2,12 +2,11 @@ rondin.js
 =========
 
 ### What is it?
-A TypeScript and JavaScript library that provides basic logging facilities based on Google Chrome's _console_ object.
+A TypeScript and JavaScript library that provides basic logging facilities based on Google Chrome's _console_ api.
 
 ### Browser support
-Developed for Chrome
-
-Tested for Chrome
+* Developed for Chrome
+* Tested for Chrome
 
 ### Usage
 
