@@ -58,9 +58,8 @@ http://translate.google.com/#fr/en/rondin
 
 ## TODO
 
-* Add date to logs
 * Add layout customization
+** Add date to logs
+** Add logger name
 * Test on Firefox / Firebug
 * Test on NodeJS
-* Don't throw on other browsers
-** This can be avoided by simply calling ```if(!window.chrome) { Rondin.setDefaultLogLevel(LogLevel.OFF, true); }```
