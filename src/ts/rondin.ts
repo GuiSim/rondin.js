@@ -9,7 +9,7 @@ enum LogLevel  {
 
 class Level {
     constructor(public level: LogLevel,
-        public logFunction: (objects: any[]) = > void,
+        public logFunction: (objects: any[]) => void,
         public style: string) {
 
     }
@@ -50,9 +50,9 @@ class Logger {
 }
 
 class Rondin {
-    static normalLog = (objects: any[]) = > console.log.apply(console, objects);
-    static warnLog = (objects: any[]) = > console.warn.apply(console, objects);
-    static errorLog = (objects: any[]) = > console.error.apply(console, objects);
+    static normalLog = (objects: any[]) => console.log.apply(console, objects);
+    static warnLog = (objects: any[]) => console.warn.apply(console, objects);
+    static errorLog = (objects: any[]) => console.error.apply(console, objects);
 
     static TRACE = new Level(LogLevel.TRACE, Rondin.normalLog, "color:#AAA");
     static DEBUG = new Level(LogLevel.DEBUG, Rondin.normalLog, "");
