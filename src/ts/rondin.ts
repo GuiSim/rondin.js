@@ -21,7 +21,7 @@ class Logger {
     }
 
     log(message: string, level: Level, objects: any[]) {
-        if (this.level <= level.level) {
+        if (Rondin.verifyRequirements() && this.level <= level.level) {
             var params = ["%c" + LogLevel[level.level] + " - " + message, level.style];
             params = params.concat(objects);
             level.logFunction(params)
@@ -80,4 +80,18 @@ class Rondin {
             }
         }
     }
+    
+    static meetsRequirements: boolean;
+    static verifyRequirements() {
+        if (Rondin.meetsRequirements === undefined) {
+            // Currently only Chrome is supported.
+            if (window["chrome"]) {
+                Rondin.meetsRequirements = true;
+            } else {
+                Rondin.meetsRequirements = false;
+            }
+        }
+        return Rondin.meetsRequirements;
+    }
 }
+Rondin.verifyRequirements();

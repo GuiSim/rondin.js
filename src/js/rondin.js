@@ -23,7 +23,7 @@ var Logger = (function () {
         this.level = level;
     }
     Logger.prototype.log = function (message, level, objects) {
-        if (this.level <= level.level) {
+        if (Rondin.verifyRequirements() && this.level <= level.level) {
             var params = ["%c" + LogLevel[level.level] + " - " + message, level.style];
             params = params.concat(objects);
             level.logFunction(params);
@@ -92,6 +92,17 @@ var Rondin = (function () {
             }
         }
     };
+
+    Rondin.verifyRequirements = function () {
+        if (Rondin.meetsRequirements === undefined) {
+            if (window["chrome"]) {
+                Rondin.meetsRequirements = true;
+            } else {
+                Rondin.meetsRequirements = false;
+            }
+        }
+        return Rondin.meetsRequirements;
+    };
     Rondin.normalLog = function (objects) {
         return console.log.apply(console, objects);
     };
@@ -112,3 +123,4 @@ var Rondin = (function () {
     Rondin.defaultLogLevel = LogLevel.INFO;
     return Rondin;
 })();
+Rondin.verifyRequirements();
