@@ -56,10 +56,3 @@ https://developers.google.com/chrome-developer-tools/docs/console-api
 ## What's up with the name?
 http://translate.google.com/#fr/en/rondin
 
-## TODO
-
-* Add layout customization
- * Add date to logs
- * Add logger name
-* Test on Firefox / Firebug
-* Test on NodeJS
